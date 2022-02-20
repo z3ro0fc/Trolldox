@@ -11,8 +11,7 @@ amarillo = Fore.YELLOW
 verde = Fore.GREEN
 #$
 
-def portada():
-     print(f"""{violeta}
+print(f"""{violeta}
 
 ░░░░░░▄▄▄▄▀▀▀▀▀▀▀▀▄▄▄▄▄▄▄
 ░░░░░█░░░░░░░░░░░░░░░░░░▀▀▄
@@ -51,110 +50,43 @@ def portada():
 ░░░░░█▄▄▄▄▄▄▄▄▄▀▄▄▄▄▄▄▄▄▄█{violeta}
 {cyan} ＰＲＯＹＥＣＴＯ ： ＴＲＯＬＬＤＯＸ {cyan} 
 {violeta} Created by Z3RO{violeta}
-{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan} Dni = Informacion de un Dni Peruano
-{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}direccion = Direccion y nombres completos por dni peruano 
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan} Dni = Informacion de un Dni Mundial
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}direccion = Direccion y nombres completos por dni 
 {rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}EpicDox = Doxeo Completo de un numero telefonico
 {rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan} Tool Publica De H-krs:
 """)
 
-def consulta_dni():
-    dni = input("[+] Escribe el dni: ")
-    def datos_del_doc():
-        url = f"https://api.reniec.online/dni/{dni}"
-        data1 = requests.get(url, verify=False)
-        resp = data1.json()
-        print(f"{azul}DNI : {blanco}"+resp['dni'])
-        print(f"{azul}NOMBRES : {blanco}"+resp['nombres'])
-        print(f"{azul}APELLIDO PATERNO : {blanco}"+resp['apellido_paterno'])
-        print(f"{azul}APELLIDO MATERNO : {blanco}"+resp['apellido_materno'])
-        #print(f"{azul}CODIGO VERIFICACIÓN : {blanco}"+resp['cui'])
-
-    def verificar_documento():
-        url2 = f"https://api.reniec.online/dni/{dni}"
-        data2 = requests.get(url2, verify=False)
-        respuesta = data2.json()
-        # verificar la validez del documento introducido
-        # en caso que exista los datos seran devueltos sean +18 o -18
-        # si el dni no existe = [error:NO_DATA]
-        try:
-            respuesta['dni']
-            datos_del_doc()
-        except KeyError:
-            print(f"{rojo}ERROR NO DATA")
-    
-    verificar_documento()
-    
-#sistema de verificacion de ruc
-def consultaruc():
-    token = '?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImdyYWR5Mzl1X24yOTFpQG5hZnhvLmNvbSJ9.cl5KQzsXaRuLuwEUWNJDLX_Zh2R_HkBsn9_YEP4keio'
-    rucki = input("[+] RUC >> ")
-    response = requests.get("https://dniruc.apisperu.com/api/v1/ruc/" +rucki +token)
-    for key, value in response.json().items():
-        print("[-] %s: %s" % (key, value))
-
-# consulta de nombres y apellidos por dni
-def consulta_por_nombres():
-    name = input("ESCRIBE EL NOMBRE: ")
-    apellidop = input("ESCRIBE EL APELLIDO PATERNO: ")
-    apellidom = input("ESCRIBE EL APELLIDO MATERNO: ")
-    url = "https://buscardni.xyz/buscador/ejemplo_ajax_proceso.php"
-    headers = CaseInsensitiveDict()
-    headers["Content-Type"] = "application/x-www-form-urlencoded"
-    data = f"APE_PAT={apellidop}&APE_MAT={apellidom}&NOMBRES={name}"
-    resp = requests.post(url, headers=headers, data=data)
-    text = resp.text
-    soup = BeautifulSoup(text, "lxml")
-    text2 = soup.get_text()
-    new_b = text2[131:]
-    characters = "ver"
-    string = ''.join( x for x in new_b if x not in characters)
-    print(string)
-
-        
-def eleccion():
-    print(f"{verde}")
-    opc = input(f"[OMG@root]>> ")
-    if opc == "dni":
-        consulta_dni()
-        eleccion()
-    elif opc == "help":
-        menu_ayuda();
-        eleccion()
-    elif opc == "ayuda":
-        menu_ayuda()
-        eleccion()
-    elif opc == "?":
-        menu_ayuda()
-        eleccion()
-    elif opc == "casa":
-        direccion_casa()
-        eleccion()
-    elif opc == "ruc":
-        consultaruc()
-        eleccion()
-    elif opc == "numero":
-        consultaindividual()
-        eleccion()
-    elif opc == "buscar":
-        consulta_por_nombres()
-        eleccion()
-    elif opc == "clear":
-        os.system("clear")
-        portada()
-        eleccion()
-    elif opc == "cls":
-        os.system("cls")
-        portada()
-        eleccion() 
-    elif opc == "exit":
-        exit()   
-    else:
-        print(f"""{rojo}
-    ERROR 404 OPCIÓN INCORRECTA x_x 
-        {verde}""")
-        eleccion()
-    
-# inicio de tool
-if __name__ == "__main__":
-    portada()
-    eleccion()
+dni = input(" ESCRIBE EL DNI : ")
+if not True:
+    print("El dni debe de ser de un menor o incorrecto")
+else:
+        print(f"""{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan} NOMBRE {cyan} {amarillo} = {amarillo} {violeta} Betrorello bautista andres {violeta}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan} DNI {cyan} {amarillo} = {amarillo}{violeta}  47876099
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan} DIRECCION = Güemes 1644 Zarate, Buenos Aires, Argentina{cyan}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Foto Dni = {cyan} {verde}47876099.jpg{verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Huella Izquierda = {cyan}{verde}i47876099.jpg {verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Huella Derecha = {cyan}{verde}d47876099.jpg 
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Madre = {cyan} {verde} Celeste Andrea Rosario{verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Padre = {cyan} {verde} Lautaro German Betrorello{verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Tia = {cyan} {rojo} NO IDENTIFICADO {rojo}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan} Tio = {cyan} {rojo} NO IDENTIFICADO {rojo}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Abuelo = {cyan} {verde} Emanuel Betrorello {verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Abuela = {cyan} {verde} Angela Fernandez {verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan} Facebook = {cyan} {verde} https://m.facebook.com/profile.php?id=100037406384705 {verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Instagram = {cyan}{rojo} NO POSEE {rojo}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Fecha De Nacimiento = {cyan} {verde} 10/1/07 {verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Patente Padre = {cyan}{verde} HKS 092 {verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}DENUNCIAS = {cyan}{rojo} NO TIENE NINGUNA DENUNCIA{rojo}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Numeros De Telefono = {cyan} {verde} +54 9 3487 23-0977 No confirmado{cyan}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Edad = {cyan}{verde} 15 {verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Trabajo = {cyan}{rojo} NO TIENE TRABAJO {rojo}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Estudio Escolar = {cyan}{verde} Escuela N°1 {verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan} Estudio Secundario = {cyan}{verde} Tatoo {verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Estudio Terciario = {cyan} {rojo} NO LO COMENZO {rojo}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Estudio universitario = {cyan} {rojo} NO LO COMENZO {rojo}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan} Usuario Free Fire = {cyan} {verde} Antronixggg {verde}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan} Usuario Play 4 = {cyan} {rojo} NO IDENTIFICADO {rojo}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Usuarios en Redes sociales = {cyan} {verde} LauuuGam { verde }
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}Tarjetas vonculadas = {cyan} {rojo} NO IDENTIFICADAS {rojo}
+{rojo}[{rojo}{amarillo}+{amarillo}{rojo}]{rojo}{cyan}""")
